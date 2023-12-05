@@ -25,3 +25,4 @@ while True:
     if Sg.WIN_CLOSED:
         break
 window.close()
+
