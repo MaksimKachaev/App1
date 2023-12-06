@@ -1,5 +1,6 @@
-Update the OS
-Make soup
 Clean the code
 Last todo
-
+Make soup
+Make sandwich
+Update the OS
+Make a game
