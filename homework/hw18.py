@@ -3,7 +3,6 @@ from converters import convert
 
 Sg.theme("Black")
 
-
 feet_label = Sg.Text("Enter feet:")
 feet_input = Sg.Input(key="feets")
 
@@ -12,7 +11,7 @@ inch_input = Sg.Input(key="inches")
 
 convert_button = Sg.Button("Convert")
 update_output = Sg.Text(key="output")
-exit_button = Sg.Button("Exit", key="exit")
+exit_button = Sg.Button("Exit")
 
 layout = [[feet_label, feet_input],
           [inch_label, inch_input],
@@ -22,13 +21,12 @@ window = Sg.Window("Convertor", layout)
 
 while True:
     event, values = window.read()
-    feet = float(values["feets"])
-    inch = float(values["inches"])
-    convertor = convert(feet, inch)
-    window['output'].update(value=f"{convertor} m", text_color="white")
-    if Sg.Button("exit"):
-        break
-    if Sg.WIN_CLOSED:
-        break
+    match event:
+        case "Convert":
+            feet = float(values["feets"])
+            inch = float(values["inches"])
+            convertor = convert(feet, inch)
+            window['output'].update(value=f"{convertor} m", text_color="white")
+        case "Exit":
+            break
 window.close()
-
