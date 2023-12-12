@@ -29,15 +29,36 @@ while True:
             break
         case sg.WIN_CLOSED:
             break
-    feet = float(values["feet"])
-    inches = float(values["inches"])
-
-    result = convert(feet, inches)
-
-    if result
-        sg.Popup("Please provide two numbers")
-
-    window["output"].update(value=f"{result} m", text_color="white")
-
+    try:
+        feet = float(values["feet"])
+        inches = float(values["inches"])
+        result = convert(feet, inches)
+        window["output"].update(value=f"{result} m", text_color="white")
+    except ValueError:
+        sg.popup("Please provide two numbers")
 
 window.close()
+
+
+
+
+
+
+
+
+# while True:
+#     event, values = window.read()
+#
+#     match event:
+#         case "Convert":
+#             try:
+#                 feet = float(values["feet"])
+#                 inches = float(values["inches"])
+#                 result = convert(feet, inches)
+#                 window["output"].update(value=f"{result} m", text_color="white")
+#             except ValueError:
+#                 sg.popup("Please provide two numbers")
+#         case "Exit":
+#             break
+#         case sg.WIN_CLOSED:
+#             break
